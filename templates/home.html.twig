@@ -1,0 +1,138 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="jumbotron">
+            <h1 class="display-4">Énoncé</h1>
+
+            <h2 class="mt-4">Contexte</h2>
+
+            <p>
+              Une société de livraison propose ses services dans les zones de couverture suivantes :
+            </p>
+
+            <ul class="list-inline">
+              <li class="list-inline-item">Lille</li>
+              <li class="list-inline-item">Lyon</li>
+              <li class="list-inline-item">Toulouse</li>
+              <li class="list-inline-item">Strasbourg</li>
+              <li class="list-inline-item">Rouen</li>
+              <li class="list-inline-item">Évreux</li>
+              <li class="list-inline-item">Rennes</li>
+              <li class="list-inline-item">Nantes</li>
+              <li class="list-inline-item">Bordeaux</li>
+              <li class="list-inline-item">Montpellier</li>
+              <li class="list-inline-item">Nice</li>
+              <li class="list-inline-item">Toulon</li>
+              <li class="list-inline-item">Paris</li>
+            </ul>
+
+            <p>
+              La société livre dans les villes indiquées ainsi que 30 km à vol d'oiseau autour du centre ville.
+              Pour Paris la zone de couverture est étendue à 80 km et pour Lyon à 40 km.
+            </p>
+
+            <p>
+              Pour être plus efficace, la société veut proposer la consultation de ces informations sur son site
+              Internet.
+            </p>
+
+            <h2 class="mt-4">Environnement technique</h2>
+            <p>Ce projet est configuré pour utiliser une base de données SQLite qui ne nécessite pas de paramétrage
+              particulier.</p>
+
+            <h2 class="mt-4">Commandes utiles :</h2>
+
+            Pour installer les dépendances php&nbsp;:
+            <pre>composer install</pre>
+
+            Pour installer les dépendances JavaScript&nbsp;:
+            <pre>npm install</pre>
+
+            Pour lancer le serveur web en mode développement&nbsp;:
+            <pre>bin/console server:run</pre>
+
+            Pour lancer Webpack DevServer&nbsp;:
+            <pre>npm run dev-server</pre>
+
+            Pour créer une migration Doctrine&nbsp;:
+            <pre>bin/console make:migration</pre>
+
+            Pour appliquer les migrations Doctrine&nbsp;:
+            <pre>bin/console doctrine:migrations:migrate</pre>
+
+            Pour appliquer les fixtures Doctrine&nbsp;:
+            <pre>bin/console doctrine:fixtures:load</pre>
+
+            <h2 class="mt-4">Partie 1 (JS, PHP, API)</h2>
+            <p>
+              Créer une page en front-end (avec Vue.js de préférence) et un controlleur Symfony en back-end
+              qui permet de saisir un code postal d'une commune française et une fois envoyé affiche :
+            </p>
+            <ul>
+              <li>le nom de la zone de couverture correspondante et la distance en km à vol
+                d'oiseau jusqu'à son centre, si la commune est couverte ;
+              </li>
+              <li>le nom de la zone de couverture la plus proche et la distance en km à vol
+                d'oiseau jusqu'à son centre, si la commune n'est pas couverte.
+              </li>
+            </ul>
+            <p>
+              Par exemple, si l'utilisateur saisit le code postal 91410 (correspondant à la commune Dourdan qui se trouve à
+              43 km de Paris), la page doit afficher que la commune est couverte par la zone Paris et la distance est de
+              43 km.
+            </p>
+
+            <p>Il est autorisé d'utiliser des bases de données ou/et les APIs disponibles sur Internet.</p>
+
+            <p>Le temps d'attente de réponse ne doit pas être supérieur à 10 secondes. On peut supposer que le
+              formulaire ne soit pas utilisé plus de 250 fois par jour.</p>
+
+            <h2 class="mt-4">Partie 2 (PHP, BDD)</h2>
+            <p>
+              Il faut créer une ou plusieurs pages pour pouvoir afficher et gérer l'ajout, la modification et la
+              suppression des
+              zones de couverture en utilisant le composant Form de Symfony.
+            </p>
+            <p>On peut supposer que la liste n'ait pas plus de 160 zones ce qui correspond au nombre des communes dont
+              population est supérieur à 50&nbsp;000 habitants.</p>
+
+            <h2 class="mt-4">Partie 3 (CSS, JS)</h2>
+            <p>
+              Faire la mise en page responsive avec Bootstrap 4 de la page d'accueil de la société
+              (les images se trouvent dans le répertoire assets/images du projet)&nbsp;:
+            </p>
+
+            <a href="{{ asset('build/images/home.png') }}" target="_blank">
+              <img class="img-fluid" src="{{ asset('build/images/home.png') }}">
+            </a>
+
+            <h2 class="mt-4">Partie 4 (PHP, BDD)</h2>
+            <p>
+              Ajouter un nouveau concept dans la base de données et dans le code qui répresente un camion de la société.
+              Il est nécessaire d'enregistrer le numéro d'immatriculation du camion ainsi que les zones de
+              couverture où
+              le camion peut intervenir. Le même camion peut être affecté à plusieurs zones et une zone peut être
+              désservie par plusieurs camions.
+            </p>
+            <p>
+              Suite à cette modification, ajouter dans l'API créée dans la partie 1, le nombre des camions qui
+              soient disponibles dans la zone de couverture correspondante.
+            </p>
+
+            <hr class="my-4">
+
+            <p>
+              Plusieurs solutions sont possibles, il est préférable de choisir la plus simple en réalisation en
+              laissant quand même une possibilité d'apporter des modifications par la suite.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
